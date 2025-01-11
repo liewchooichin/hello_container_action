@@ -24,5 +24,5 @@ jobs:
     steps:
       - name: Use env value
         run: |
-          echo "Env variable: " ${{ vars.ENV_MY_VAR }}
+          echo "Env variable: " ${{ ENV_MY_VAR }}
     
