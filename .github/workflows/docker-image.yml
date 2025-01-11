@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  
 jobs:
   hello_world_job:
     runs-on: ubuntu-24.04
@@ -19,25 +19,10 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
-  build:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      # Output build artifacts to /github/workspace on the container.
-      - name: Containerized Build
-        uses: ./.github/actions/my-container-action
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: workspace_artifacts
-          path: ${{ github.workspace }}
   read_env_value:
     runs-on: ubuntu-24.04
     steps:
-      - name: Print env value
+      - name: Use env value
         run: |
-          echo "Env variable: " ${{ env.ENV_MY_VAR }}
+          echo "Env variable: " ${{ vars..ENV_MY_VAR }}
     
