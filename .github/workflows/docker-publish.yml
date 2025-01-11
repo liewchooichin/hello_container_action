@@ -13,6 +13,10 @@ on:
   release:
     types: [published]
 
+env:
+  REGISTRY: liewchooichin
+  IMAGE_NAME: my-hello-container-action
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
