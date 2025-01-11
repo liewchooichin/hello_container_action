@@ -26,3 +26,5 @@ jobs:
         run: |
           echo "Env variable: " 
           echo ${{ vars.ENV_MY_VAR }}
+          echo ${{ vars.ENV_SECRET.ENV_MY_VAR }}
+          echo $REPO_MY_VAR
